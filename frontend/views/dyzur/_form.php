@@ -2,6 +2,9 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
+use frontend\models\funkcja;
+use frontend\models\Miejsce;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Dyzur */
@@ -12,9 +15,16 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'ID_Funkcja')->textInput() ?>
-
-    <?= $form->field($model, 'ID_Miejsce')->textInput() ?>
+  
+    
+ 
+    <?= $form->field($model, 'ID_Funkcja')->dropDownList(
+            ArrayHelper::map(funkcja::find()->all(), 'ID_Funkcja', 'Nazwa'),['[prompt'=>'Wybierz funkcje'])
+            ?>
+    <?= $form->field($model, 'ID_Miejsce')->dropDownList(
+            ArrayHelper::map(Miejsce::find()->all(), 'ID_Miejsce', 'Nazwa'),['[prompt'=>'Wybierz miejsce'])
+            ?>  
+    
 
     <?= $form->field($model, 'Od_kiedy')->textInput() ?>
 

@@ -49,7 +49,11 @@ AppAsset::register($this);
         $menuItems[] = ['label' => 'Zarejestruj', 'url' => ['/site/signup']];
         $menuItems[] = ['label' => 'Zaloguj', 'url' => ['/site/login']];
     } else {
-        $menuItems[] = ['label' => 'Moje Dyzury', 'url' => ['/dyzur/index']];
+        $menuItems[] = ['label' => 'Dyżury', 'url' => ['/dyzur/index']];
+        
+        if(Yii::$app->user->identity->ID_Funkcja != 1){
+            $menuItems[] = ['label' => 'Moje Dyżury', 'url' => ['/dyzur/index']];}
+            
         $menuItems[] = '<li>'
 
             . Html::beginForm(['/site/logout'], 'post')
@@ -59,6 +63,7 @@ AppAsset::register($this);
             )
             . Html::endForm()
             . '</li>';
+        
     }
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
