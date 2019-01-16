@@ -13,6 +13,10 @@ use Yii;
  * @property string $Od_kiedy
  * @property string $Do_kiedy
  * @property int $ID_Pracownik
+ *
+ * @property Funkcja $funkcja
+ * @property Miejsce $miejsce
+ * @property User $pracownik
  */
 class Dyzur extends \yii\db\ActiveRecord
 {
@@ -33,6 +37,9 @@ class Dyzur extends \yii\db\ActiveRecord
             [['ID_Funkcja', 'ID_Miejsce', 'Od_kiedy', 'Do_kiedy'], 'required'],
             [['ID_Funkcja', 'ID_Miejsce', 'ID_Pracownik'], 'integer'],
             [['Od_kiedy', 'Do_kiedy'], 'safe'],
+            [['ID_Funkcja'], 'exist', 'skipOnError' => true, 'targetClass' => Funkcja::className(), 'targetAttribute' => ['ID_Funkcja' => 'ID_Funkcja']],
+            [['ID_Miejsce'], 'exist', 'skipOnError' => true, 'targetClass' => Miejsce::className(), 'targetAttribute' => ['ID_Miejsce' => 'ID_Miejsce']],
+            [['ID_Pracownik'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['ID_Pracownik' => 'id']],
         ];
     }
 
@@ -49,5 +56,29 @@ class Dyzur extends \yii\db\ActiveRecord
             'Do_kiedy' => 'Do Kiedy',
             'ID_Pracownik' => 'Id  Pracownik',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getFunkcja()
+    {
+        return $this->hasOne(Funkcja::className(), ['ID_Funkcja' => 'ID_Funkcja']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getMiejsce()
+    {
+        return $this->hasOne(Miejsce::className(), ['ID_Miejsce' => 'ID_Miejsce']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getPracownik()
+    {
+        return $this->hasOne(User::className(), ['id' => 'ID_Pracownik']);
     }
 }

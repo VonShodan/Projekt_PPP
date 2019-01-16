@@ -2,7 +2,6 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-
 /* @var $this yii\web\View */
 /* @var $searchModel frontend\models\DyzurSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -26,11 +25,11 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'ID_dyzur',
-            'ID_Funkcja',
-            'ID_Miejsce',
+            'funkcja.Nazwa',
+            'miejsce.Nazwa',
             'Od_kiedy',
             'Do_kiedy',
-            //'ID_Pracownik',
+            'pracownik.username',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
