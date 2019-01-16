@@ -6,13 +6,13 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Dyzur */
 
-$this->title = $model->ID_dyzur;
+$this->title = 'Dyzur Info';
 $this->params['breadcrumbs'][] = ['label' => 'Dyzurs', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="dyzur-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1>Dyzur Info </h1>
 
     <p>
         <?= Html::a('Update', ['update', 'id' => $model->ID_dyzur], ['class' => 'btn btn-primary']) ?>
