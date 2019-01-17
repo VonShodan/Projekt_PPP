@@ -51,8 +51,8 @@ AppAsset::register($this);
     } else {
         $menuItems[] = ['label' => 'Dyżury', 'url' => ['/dyzur/index']];
         
-        if(Yii::$app->user->identity->ID_Funkcja != 1){
-            $menuItems[] = ['label' => 'Moje Dyżury', 'url' => ['/dyzur/index']];}
+      //  if(Yii::$app->user->identity->ID_Funkcja != 1){
+      //      $menuItems[] = ['label' => 'Moje Dyżury', 'url' => ['/site/index2']];}
             
         $menuItems[] = '<li>'
 

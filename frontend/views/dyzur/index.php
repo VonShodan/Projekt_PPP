@@ -51,15 +51,15 @@ $this->params['breadcrumbs'][] = $this->title;
             'pracownik.username',
 
             ['class' => 'yii\grid\ActionColumn',
-			'template' => '{view}{myButton}',  // the default buttons + your custom button
-            'buttons' => [
-                'myButton' => function($url, $model, $key) {     // render your custom button
-				return Html::a('Zapisz się', ['delete', 'id' => $model->ID_dyzur], [
-            'class' => 'btn btn-primary btn-xs',
-            'data' => [
-                'confirm' => 'Please confirm payment',
-                'method' => 'post',
-            ],
+			'template' => '{myButton}',  // the default buttons + your custom button
+                        'buttons' => [
+                        'myButton' => function($url, $model, $key) {     // render your custom button
+				return Html::a('Zapisz się', ['update', 'id' => $model->ID_dyzur], [
+                                'class' => 'btn btn-primary btn-xs',
+                                'data' => [
+                                'confirm' => 'Potwierdź zapis na dyżur',
+                                'method' => 'post',
+                                          ],
         ]) ;
 				}
 			],

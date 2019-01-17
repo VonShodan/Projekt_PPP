@@ -50,9 +50,10 @@ use dosamigos\datepicker\DatePicker;
         'clientOptions' => [
             'autoclose' => true,
             'format' => 'yyyy-mm-dd',
-            'startDate'=>'+2d'
+            'startDate'=>'+1d'
         ]
 ]);?>
+    
     
      <?= $form->field($model, 'ID_Pracownik')->dropDownList(
             ArrayHelper::map(user::find()->all(), 'id', 'username'),['[prompt'=>'Wybierz uzytkownika'])
